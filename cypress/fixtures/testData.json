@@ -1,0 +1,48 @@
+{
+    "users": {
+        "standard": {
+            "username": "standard_user",
+            "password": "secret_sauce"
+        },
+        "locked": {
+            "username": "locked_out_user",
+            "password": "secret_sauce"
+        },
+        "invalid": {
+            "username": "invalid_user",
+            "password": "invalid_password"
+        }
+    },
+    "products": {
+        "backpack": {
+            "name": "Sauce Labs Backpack",
+            "selector": "add-to-cart-sauce-labs-backpack"
+        },
+        "bikeLight": {
+            "name": "Sauce Labs Bike Light",
+            "selector": "add-to-cart-sauce-labs-bike-light"
+        }
+    },
+    "checkout": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "postalCode": "12345"
+    },
+    "errorMessages": {
+        "invalidCredentials": "Epic sadface: Username and password do not match any user in this service",
+        "lockedUser": "Epic sadface: Sorry, this user has been locked out"
+    },
+    "reqres": {
+        "loginSuccess": {
+            "email": "eve.holt@reqres.in",
+            "password": "cityslicka"
+        },
+        "loginMissingPassword": {
+            "email": "peter@klaven"
+        },
+        "updateUser": {
+            "name": "rasool",
+            "job": "qa engineer"
+        }
+    }
+} 
