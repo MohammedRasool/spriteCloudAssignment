@@ -2,29 +2,29 @@
 ### Author: [Mohammed Rasool Abdul Azeez](https://www.linkedin.com/in/mohammed-rasool-abdul-azeez/)
 #### Email: razuldt@gmail.com
 
-### Software/OS versions that were used to create/update the project:
+## Software/OS versions that were used to create/update the project:
 1. Cypress version: ```14.4.0```
 2. Nodejs version: ```18.19.1```
 3. Language: JavaScript
 4. IDE: ```VS Code```
 5. OS: ```MacOS Sequoia 15.0```
 
-### Assumptions:
+## Assumptions:
 - I made the following assumptions:
   - The application works on all browsers (to reduce the scope of cross-browser testing). So all the automated tests were mostly run on the ```Electron v130``` browser
   - The automated tests run as expected on MacOS. The automated test runs may not work completely on other Operating systems (Windows/Linux).
 
-### Pre-Requisites to run tests on a machine:
+## Pre-Requisites to run tests on a machine:
 1. Install Node.js version (```18.x```)
 2. Clone this project
 3. Open the project in an IDE
 4. Open up a terminal and run: ```npm install``` (to download/configure Cypress along with other required dependencies.)
 
-### Application Pre-Requisite setup before running the automated tests (IMPORTANT !):
+## Application Pre-Requisite setup before running the automated tests (IMPORTANT !):
 - **<ins>Please make sure that the Sauce Demo website (https://www.saucedemo.com/) is accessible before running the automated tests.</ins>**
 - **<ins>The test data is already pre-configured in the ```cypress/fixtures/testData.json``` file.</ins>**
 
-### Automated test scenarios:
+## Automated test scenarios:
 1. **Scenario 1: Login Functionality Tests**
    - Automated Test Steps:
      - Test failed login with invalid credentials
@@ -55,14 +55,14 @@
      - Test error handling for non-existent user
      - Test delayed response (3 seconds) and validate response time
 
-### Scenario/Tests location:
+## Scenario/Tests location:
 - UI Tests are located in: ```./cypress/e2e/uitests/```
   - Login tests: ```login.cy.js```
   - Sorting tests: ```sorting.cy.js```
   - Checkout tests: ```checkout.cy.js```
 - API Tests are located in: ```./cypress/e2e/apitests/reqres_api.cy.js```
 
-### Framework information/details:
+## Framework information/details:
 1. **Hooks (before, beforeEach and afterEach):**
    - The ```beforeEach``` hook:
      - In Login tests: Loads test data from ```cypress/fixtures/testData.json```
@@ -86,9 +86,9 @@
    - Located at: ```./cypress.config.js```
    - API Key for ReqRes.in is stored in: ```./cypress.env.json```
 
-### Running the automated tests:
+## Running the automated tests locally:
 
-#### Run the E2E automation suite (all tests) headlessly (on Electron v130) and Generate the Mochawesome report:
+### Run the E2E automation suite (all tests) headlessly (on Electron v130) and Generate the Mochawesome report:
 1. We have MochAwesome Reporter v3.5.1 configured within NPM scripts (```scripts``` within ```package.json```).
 2. Open up a terminal and run: ```npm run cypress:test:all:report```
    - This NPM script will:
@@ -96,3 +96,46 @@
      - Run all the tests
      - Generate a new MochAwesome report with all test results combined
 3. The MochAwesome Report will be located at: ```cypress/reports/index.html```
+
+## Running the automated tests via Pipeline: GitHub Actions workflow + Cypress Cloud integration
+
+The project uses GitHub Actions for continuous integration and Cypress Cloud for test reporting. The workflow is configured in `.github/workflows/cypress-cloud.yml`.
+
+### Workflow Triggers
+- Automatic runs on:
+  - Push to main branch
+  - Pull requests to main branch
+- Manual trigger option available
+
+### Workflow Steps
+1. **Checkout Code**: Retrieves the latest code from the repository
+2. **Setup Node.js**: Configures Node.js environment with npm caching
+3. **Install Dependencies**: Installs project dependencies using `npm ci`
+4. **Cypress Cloud**: Runs tests and records results to Cypress Cloud
+
+### Cypress Cloud Features
+- **Test Recording**: All test runs are recorded and available in the Cypress Cloud dashboard
+- **Parallel Execution**: Tests run in parallel for faster execution
+- **Test Grouping**: Results are grouped under "UI Tests" for better organization
+- **Build Tracking**: Each test run is uniquely identified by the commit SHA
+- **Comprehensive Dashboard**: Access to:
+  - Test results and history
+  - Video recordings of test runs
+  - Screenshots of failures
+  - Performance metrics
+  - Test duration statistics
+
+### Required Secrets
+The following secrets must be configured in GitHub:
+- `CYPRESS_RECORD_KEY`: Authentication key for Cypress Cloud
+- `REQRES_API_KEY`: API key for ReqRes.in API tests
+
+### Runs results:
+- Mochawesome report (Local run)
+- ![Image](https://github.com/user-attachments/assets/e0dc3a8c-fc7f-4a0d-88f0-379f8a74615e)
+
+- Github Action workflow passed (Pipeline run)
+- ![Image](https://github.com/user-attachments/assets/dad9db99-43e3-4bf9-9fec-b261eacc75f9)
+
+- Cypress cloud results (triggered by Github Actions pipeline)
+![Image](https://github.com/user-attachments/assets/586c8f59-6cb3-41be-a0d4-1cabf044ffa6)
