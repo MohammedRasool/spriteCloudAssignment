@@ -1,0 +1,20 @@
+{
+  "name": "spritecloud-assignment",
+  "version": "1.0.0",
+  "description": "Cypress tests for Sauce Demo website",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cy:ui": "npx cypress run --spec \"cypress/e2e/uitests/*\"",
+    "cy:api": "npx cypress run --spec \"cypress/e2e/apitests/*\"",
+    "clean:reports": "rm -rf cypress/reports/*",
+    "cypress:test:all:report": "npm run clean:reports && cypress run --reporter cypress-mochawesome-reporter"
+  },
+  "keywords": [],
+  "author": "Mohammed Rasool Abdul Azeez",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.4.0",
+    "cypress-mochawesome-reporter": "^3.5.1"
+  }
+}
