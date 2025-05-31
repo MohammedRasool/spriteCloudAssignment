@@ -2,6 +2,20 @@
 ### Author: [Mohammed Rasool Abdul Azeez](https://www.linkedin.com/in/mohammed-rasool-abdul-azeez/)
 #### Email: razuldt@gmail.com
 
+## Table of Contents
+- [Software/OS Versions](https://github.com/MohammedRasool/TrengoAssignment#softwareos-versions-that-were-used-to-createupdate-the-project)
+- [Assumptions](https://github.com/MohammedRasool/spriteCloudAssignment#assumptions)
+- [Pre-Requisites to run tests on a machine](https://github.com/MohammedRasool/spriteCloudAssignment#pre-requisites-to-run-tests-on-a-machine)
+- [Application Setup](https://github.com/MohammedRasool/spriteCloudAssignment#application-pre-requisite-setup-before-running-the-automated-tests-important-)
+- [Test Scenarios](https://github.com/MohammedRasool/spriteCloudAssignment#automated-test-scenarios)
+- [Test Locations](https://github.com/MohammedRasool/spriteCloudAssignment#scenariotests-location)
+- [Framework Details](https://github.com/MohammedRasool/spriteCloudAssignment#framework-informationdetails)
+- [Running Tests](https://github.com/MohammedRasool/spriteCloudAssignment#run-the-automation-suite-locally-headless-via-cli-and-generate-the-mochawesome-report)
+  - [Local Execution](https://github.com/MohammedRasool/spriteCloudAssignment#run-the-automation-suite-locally-headless-via-cli-and-generate-the-mochawesome-report)
+  - [Pipeline Execution](https://github.com/MohammedRasool/spriteCloudAssignment#run-the-automated-tests-via-pipeline-github-actions-workflow--cypress-cloud-integration)
+- [Test Results](https://github.com/MohammedRasool/spriteCloudAssignment#run-results)
+- [Future Improvements](https://github.com/MohammedRasool/spriteCloudAssignment#future-improvements)
+
 ## Software/OS versions that were used to create/update the project:
 1. Cypress version: ```14.4.0```
 2. Nodejs version: ```18.19.1```
@@ -128,14 +142,46 @@ The following secrets must be configured in GitHub:
 - `CYPRESS_RECORD_KEY`: Authentication key for Cypress Cloud
 - `REQRES_API_KEY`: API key for ReqRes.in API tests
 
-### Run results:
-- #### Mochawesome report (Local run)
+## Run results:
+- ### Mochawesome report (Local run)
   - Report is attached here: ```./mochawesome_report.html``` (screenshot seen below)
   - ![Image](https://github.com/user-attachments/assets/e0dc3a8c-fc7f-4a0d-88f0-379f8a74615e)
 
-- #### Github Action workflow passed (Pipeline run)
+- ### Github Action workflow passed (Pipeline run)
   - Pipeline runs link: https://github.com/MohammedRasool/spriteCloudAssignment/actions (screenshot seen below)
   - ![Image](https://github.com/user-attachments/assets/dad9db99-43e3-4bf9-9fec-b261eacc75f9)
 
-- #### Cypress cloud results (triggered by Github Actions pipeline run)
+- ### Cypress cloud results (triggered by Github Actions pipeline run)
   - ![Image](https://github.com/user-attachments/assets/586c8f59-6cb3-41be-a0d4-1cabf044ffa6)
+
+## Future Improvements
+1. **Visual Regression Testing**
+   - Implement visual testing using tools like Percy or Applitools
+   - Compare UI changes across different environments
+   - Automate visual validation of UI components
+
+2. **API Testing Enhancements**
+   - Implement API mocking using MSW (Mock Service Worker)
+   - Create more reliable and isolated API tests
+   - Reduce dependency on external services
+
+3. **Test Stability**
+   - Implement retry mechanisms for flaky tests
+   - Add better error handling and recovery
+   - Improve test reliability and consistency
+
+4. **CI/CD Pipeline**
+   - Add parallel test execution across different browsers
+   - Implement cross-browser testing strategy
+   - Add Slack/Teams notifications for test results
+   - Improve test result visibility
+
+5. **Debugging and Logging**
+   - Add more detailed logging capabilities
+   - Implement better debugging tools
+   - Improve error tracking and reporting
+
+6. **Mobile Testing**
+   - Add mobile automation support
+   - Implement mobile-specific test scenarios
+   - Support for both iOS and Android platforms
