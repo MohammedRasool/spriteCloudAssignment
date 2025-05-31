@@ -71,9 +71,9 @@
 
 2. **Page Objects:**
    - Located at: ```./cypress/support/pages/```
-   - InventoryPage.js - Contains inventory page methods for product listing and sorting
-   - CartPage.js - Contains cart page methods for managing items
-   - CheckoutPage.js - Contains checkout page methods for completing purchase
+   - ```InventoryPage.js``` - Contains inventory page methods for product listing and sorting
+   - ```CartPage.js``` - Contains cart page methods for managing items
+   - ```CheckoutPage.js``` - Contains checkout page methods for completing purchase
 
 3. **Test Data:**
    - Located at: ```cypress/fixtures/testData.json```
@@ -84,11 +84,9 @@
 
 5. **BaseUrl (for UI test) and Environment variables:**
    - Located at: ```./cypress.config.js```
-   - API Key for ReqRes.in is stored in: ```./cypress.env.json```
+   - API Key for ReqRes.in was locally stored in : ```./cypress.env.json```, but this file was not pushed to the repo for security reasons. The API Key is therefore stored as a GitHub secret (`REQRES_API_KEY`)
 
-## Running the automated tests locally:
-
-### Run the E2E automation suite (all tests) headlessly (on Electron v130) and Generate the Mochawesome report:
+## Run the automation suite locally (headless via CLI) and Generate the Mochawesome report:
 1. We have MochAwesome Reporter v3.5.1 configured within NPM scripts (```scripts``` within ```package.json```).
 2. Open up a terminal and run: ```npm run cypress:test:all:report```
    - This NPM script will:
@@ -97,7 +95,7 @@
      - Generate a new MochAwesome report with all test results combined
 3. The MochAwesome Report will be located at: ```cypress/reports/index.html```
 
-## Running the automated tests via Pipeline: GitHub Actions workflow + Cypress Cloud integration
+## Run the automated tests via Pipeline: GitHub Actions workflow + Cypress Cloud integration
 
 The project uses GitHub Actions for continuous integration and Cypress Cloud for test reporting. The workflow is configured in `.github/workflows/cypress-cloud.yml`.
 
@@ -130,12 +128,14 @@ The following secrets must be configured in GitHub:
 - `CYPRESS_RECORD_KEY`: Authentication key for Cypress Cloud
 - `REQRES_API_KEY`: API key for ReqRes.in API tests
 
-### Runs results:
-- Mochawesome report (Local run)
-- ![Image](https://github.com/user-attachments/assets/e0dc3a8c-fc7f-4a0d-88f0-379f8a74615e)
+### Run results:
+- #### Mochawesome report (Local run)
+  - Report is attached here: ```./mochawesome_report.html``` (screenshot seen below)
+  - ![Image](https://github.com/user-attachments/assets/e0dc3a8c-fc7f-4a0d-88f0-379f8a74615e)
 
-- Github Action workflow passed (Pipeline run)
-- ![Image](https://github.com/user-attachments/assets/dad9db99-43e3-4bf9-9fec-b261eacc75f9)
+- #### Github Action workflow passed (Pipeline run)
+  - Pipeline runs link: https://github.com/MohammedRasool/spriteCloudAssignment/actions (screenshot seen below)
+  - ![Image](https://github.com/user-attachments/assets/dad9db99-43e3-4bf9-9fec-b261eacc75f9)
 
-- Cypress cloud results (triggered by Github Actions pipeline)
-![Image](https://github.com/user-attachments/assets/586c8f59-6cb3-41be-a0d4-1cabf044ffa6)
+- #### Cypress cloud results (triggered by Github Actions pipeline run)
+  - ![Image](https://github.com/user-attachments/assets/586c8f59-6cb3-41be-a0d4-1cabf044ffa6)
