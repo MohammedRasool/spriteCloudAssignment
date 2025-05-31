@@ -6,6 +6,7 @@ class InventoryPage {
     cartLink = '.shopping_cart_link'
     removeButtons = '[data-test^="remove-"]'
     continueShoppingButton = '[data-test="continue-shopping"]'
+    addToCartButton = (selector) => `[data-test="${selector}"]`
 
     // Actions
     sortProducts(sortOption) {
@@ -14,7 +15,7 @@ class InventoryPage {
 
     addItemToCart(item) {
         cy.fixture('testData.json').then((testData) => {
-            cy.get(`[data-test="${testData.products[item].selector}"]`).click()
+            cy.get(this.addToCartButton(testData.products[item].selector)).click()
         })
     }
 
