@@ -35,8 +35,8 @@
 4. Open up a terminal and run: ```npm install``` (to download/configure Cypress along with other required dependencies.)
 
 ## Application Pre-Requisite setup before running the automated tests (IMPORTANT !):
-- **<ins>Please make sure that the Sauce Demo website (https://www.saucedemo.com/) is accessible before running the automated tests.</ins>**
-- **<ins>The test data is already pre-configured in the ```cypress/fixtures/testData.json``` file.</ins>**
+- **Please make sure that the websites "Sauce Demo" (https://www.saucedemo.com/) and "ReqRes" (https://reqres.in/) are accessible and functional before running the automated tests.**
+- **The test data is already pre-configured in the ```cypress/fixtures/testData.json``` file.**
 
 ## Automated test scenarios:
 1. **Scenario 1: Login Functionality Tests**
